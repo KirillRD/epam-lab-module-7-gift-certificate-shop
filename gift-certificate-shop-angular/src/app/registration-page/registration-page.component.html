@@ -1,0 +1,100 @@
+<div class="d-flex flex-column align-items-center">
+  <h2 class="mb-3 text-primary fw-bold" translate="pages.registration.page-name"></h2>
+  <form [formGroup]="registrationForm" class="col-5" (ngSubmit)="registration(registrationForm.value)" novalidate>
+    <ngb-alert
+      *ngIf="loginExistsAlert"
+      type="danger"
+      (closed)="closeLoginExistsAlert()"
+      translate="validator.warning-messages.registration.login-exists"
+    ></ngb-alert>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="emailInput" class="form-label" translate="pages.registration.email-input"></label>
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            formControlName="login"
+            [class.is-invalid]="registrationForm.controls['login'].invalid && (registrationForm.controls['login'].dirty || registrationForm.controls['login'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['login'].errors && (registrationForm.controls['login'].dirty || registrationForm.controls['login'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['login'].errors?.['required']" translate="validator.warning-messages.required"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['login'].errors?.['pattern']" translate="validator.warning-messages.patter.email"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['login'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['login'].errors?.['loginExists']" translate="validator.warning-messages.registration.login-exists"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label" translate="pages.registration.password-input"></label>
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            formControlName="password"
+            [class.is-invalid]="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['password'].errors && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['password'].errors?.['required']" translate="validator.warning-messages.required"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPasswordInput" class="form-label" translate="pages.registration.confirm-password-input"></label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPasswordInput"
+            formControlName="confirmPassword"
+            [class.is-invalid]="registrationForm.controls['confirmPassword'].invalid && (registrationForm.controls['confirmPassword'].dirty || registrationForm.controls['confirmPassword'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['confirmPassword'].errors && (registrationForm.controls['confirmPassword'].dirty || registrationForm.controls['confirmPassword'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['confirmPassword'].errors?.['required']" translate="validator.warning-messages.required"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['confirmPassword'].errors?.['confirmPasswordMatch']" translate="validator.warning-messages.registration.confirm-password-match"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="nameInput" class="form-label" translate="pages.registration.name-input"></label>
+          <input
+            class="form-control"
+            id="nameInput"
+            formControlName="name"
+            [class.is-invalid]="registrationForm.controls['name'].invalid && (registrationForm.controls['name'].dirty || registrationForm.controls['name'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['name'].errors && (registrationForm.controls['name'].dirty || registrationForm.controls['name'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['name'].errors?.['required']" translate="validator.warning-messages.required"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['name'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="addressInput" class="form-label" translate="pages.registration.address-input"></label>
+          <input
+            class="form-control"
+            id="addressInput"
+            formControlName="address"
+            [class.is-invalid]="registrationForm.controls['address'].invalid && (registrationForm.controls['address'].dirty || registrationForm.controls['address'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['address'].errors && (registrationForm.controls['address'].dirty || registrationForm.controls['address'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['address'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="phoneInput" class="form-label" translate="pages.registration.phone-input"></label>
+          <input
+            class="form-control"
+            id="phoneInput"
+            formControlName="phone"
+            [class.is-invalid]="registrationForm.controls['phone'].invalid && (registrationForm.controls['phone'].dirty || registrationForm.controls['phone'].touched)"
+          >
+          <div *ngIf="registrationForm.controls['phone'].errors && (registrationForm.controls['phone'].dirty || registrationForm.controls['phone'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="registrationForm.controls['phone'].errors?.['pattern']" translate="validator.warning-messages.patter.phone"></p>
+            <p class="m-0" *ngIf="registrationForm.controls['phone'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-0">
+    <button type="submit" class="btn btn-primary w-100" translate="pages.registration.sign-up-button"></button>
+  </form>
+</div>

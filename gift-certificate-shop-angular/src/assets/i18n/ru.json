@@ -1,0 +1,215 @@
+{
+  "componets": {
+    "multiselect": {
+      "placeholders": {
+        "select": "Выбор элементов",
+        "search": "Поиск"
+      },
+      "all": "Все",
+      "not-found": "Элемент не найден",
+      "count": "Количество:",
+      "checked": "Выбрано:",
+      "search-count": "Найдено элементов:"
+    }
+  },
+
+  "validator": {
+    "warning-messages": {
+      "required": "Это поле обязательное",
+      "max-length-45": "Длинна этого поля должна быть меньше 45",
+      "patter": {
+        "natural-number": "Значение этого поля должно быть целым числом равным 1 или больше",
+        "email": "Значение этого поля должно быть электронной почтой, типа \"username@gmail.com\"",
+        "phone": "Значение этого поля должно быть номером телефона, типа \"+375291234567\"",
+        "price": "Значение этого поля должно быть ценой, имеющей не более 5 цифр до запятой и не более 2 цифр после запятой"
+      },
+      "login": {
+        "invalid-password": "Неправильная электронная почта или пароль"
+      },
+      "registration": {
+        "confirm-password-match": "Пароль подтверждения не совпадает с введённым паролем",
+        "login-exists": "Пользователь с таким логином уже существует"
+      },
+      "gift-certificate": {
+        "empty-tags": "Подарочный сертификат должен иметь хотя бы один тег",
+        "name-exists": "Подарочный сертификат с таким именем уже существует"
+      },
+      "tag": {
+        "name-exists": "Тег с таким именем уже существует"
+      }
+    }
+  },
+
+  "error": {
+    "code": "Код: ",
+    "404": "Страница не найдена",
+    "500": "Что-то пошло не так"
+  },
+
+  "fields": {
+    "duration": {
+      "days": "{{ dyas }} д."
+    }
+  },
+
+  "company": {
+    "name": "Магазин"
+  },
+
+  "pages": {
+    "home": {
+      "title": "Подарочные серктификаты",
+      "subtitle": "только для тебя"
+    },
+
+    "admin": {
+      "offcanvas-name": "Функции администратора"
+    },
+
+    "gift-certificate": {
+      "catalog": {
+        "page-name": "Каталог",
+        "search-box": {
+          "search-input": "Поиск",
+          "tags-select": "Теги",
+          "tags-select-placeholder": "Выберите теги",
+          "sort-select": "Сортировка",
+          "sort-select-placeholder": "Выберите сортировку",
+          "sorts": {
+            "name-asc": "По названию",
+            "name-desc": "По названию desc",
+            "create-date-asc": "По возрастанию даты создания",
+            "create-date-desc": "По убыванию даты создания",
+            "last-update-date-asc": "По возрастанию даты обновления",
+            "last-update-date-desc": "По убыванию даты обновления"
+          },
+          "search-button": "Поиск"
+        }
+      },
+      "list": {
+        "page-name": "Список подарочных сертификатов",
+        "search-box": {
+          "search-input": "Поиск",
+          "tags-select": "Теги",
+          "tags-select-placeholder": "Выберите теги",
+          "sort-select": "Сортировка",
+          "sort-select-placeholder": "Выберите сортировку",
+          "sorts": {
+            "name-asc": "По названию",
+            "name-desc": "По названию desc",
+            "create-date-asc": "По возрастанию даты создания",
+            "create-date-desc": "По убыванию даты создания",
+            "last-update-date-asc": "По возрастанию даты обновления",
+            "last-update-date-desc": "По убыванию даты обновления"
+          },
+          "search-button": "Поиск"
+        }
+      },
+      "page": {
+        "duration": "Длительность:",
+        "tags": "Теги:",
+        "description": "Описание:",
+        "add-to-cart-button": "Добавить в корзину"
+      },
+      "add-page": {
+        "page-name": "Добавление подарочного сертификата",
+        "name-input": "Название",
+        "description-input": "Описание",
+        "price-input": "Цена",
+        "duration-input": "Длительность",
+        "tags-input": "Теги",
+        "save-button": "Сохранить"
+      },
+      "edit-page": {
+        "page-name": "Редактирование подарочного сертификата",
+        "name-input": "Название",
+        "description-input": "Описание",
+        "price-input": "Цена",
+        "duration-input": "Длительность",
+        "tags-input": "Теги",
+        "save-button": "Сохранить"
+      },
+      "delete-modal": {
+        "title": "Удаление подарочного сертификата",
+        "question": "Вы действительно хотите удалить подарочный сертификат <strong>\"{{ gift-certificate-name }}\"</strong>?",
+        "close-button": "Закрыть",
+        "confirm-button": "Удалить"
+      }
+    },
+
+    "tag": {
+      "list": {
+        "page-name": "Список тегов",
+        "search-box": {
+          "search-input": "Поиск",
+          "search-button": "Поиск"
+        }
+      },
+      "add-page": {
+        "page-name": "Добавление тега",
+        "name-input": "Название",
+        "save-button": "Сохранить"
+      },
+      "edit-page": {
+        "page-name": "Редактирование тега",
+        "name-input": "Название",
+        "save-button": "Сохранить"
+      },
+      "delete-modal": {
+        "title": "Удаление тега",
+        "question": "Вы действительно хотите удалить тег <strong>\"{{ tag-name }}\"</strong>?",
+        "close-button": "Закрыть",
+        "confirm-button": "Удалить"
+      }
+    },
+
+    "registration": {
+      "page-name": "Регистрация",
+      "email-input": "Почта",
+      "password-input": "Пароль",
+      "confirm-password-input": "Подтверждение пароля",
+      "name-input": "Имя",
+      "address-input": "Адрес",
+      "phone-input": "Телефон",
+      "sign-up-button": "Зарегистрироваться"
+    },
+
+    "login": {
+      "page-name": "Вход",
+      "email-input": "Почта",
+      "password-input": "Пароль",
+      "sign-in-button": "Войти"
+    },
+
+    "cart": {
+      "page-name": "Корзина",
+      "total-price": "Общая стоимость: ",
+      "confirm-order-button": "Подвердить заказ",
+      "empty": "Корзина пуста"
+    },
+
+    "user": {
+      "email": "Почта: ",
+      "name": "Имя: ",
+      "address": "Адрес: ",
+      "phone": "Телефон: ",
+      "orders": {
+        "list-name": "Заказы",
+        "delete-modal": {
+          "title": "Отмена заказа",
+          "question": "Вы действительно хотите отменить заказ с номером <strong>\"{{ order-id }}\"</strong>?",
+          "close-button": "Закрыть",
+          "confirm-button": "Отменить"
+        }
+      },
+      "logout-button": "Выход",
+      "list": {
+        "page-name": "Список пользователей",
+        "search-box": {
+          "search-input": "Поиск",
+          "search-button": "Поиск"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "componets": {
+    "multiselect": {
+      "placeholders": {
+        "select": "Select items",
+        "search": "Search"
+      },
+      "all": "All",
+      "not-found": "Item not found",
+      "count": "Count:",
+      "checked": "Checked:",
+      "search-count": "Items found:"
+    }
+  },
+
+  "validator": {
+    "warning-messages": {
+      "required": "This field is required",
+      "max-length-45": "Length of this field must be lowwer than 45",
+      "patter": {
+        "natural-number": "Value of this field must be an integer equal to 1 or greater",
+        "email": "Value of this field must be an email, like \"username@gmail.com\"",
+        "phone": "Value of this field must be a phone number, like \"+375291234567\"",
+        "price": "Value of this field must be a price with no more than 5 digits before the decimal point and no more than 2 digits after the decimal point"
+      },
+      "login": {
+        "invalid-password": "Invalid email or password"
+      },
+      "registration": {
+        "confirm-password-match": "Сonfirmation password does not match the entered password",
+        "login-exists": "User with this login already exists"
+      },
+      "gift-certificate": {
+        "empty-tags": "Gift certificate must have at least one tag",
+        "name-exists": "Gift certificate with this name already exists"
+      },
+      "tag": {
+        "name-exists": "Tag with this name already exists"
+      }
+    }
+  },
+
+  "error": {
+    "code": "Code: ",
+    "404": "Page not found",
+    "500": "Something went wrong"
+  },
+
+  "fields": {
+    "duration": {
+      "days": "{{ dyas }} d."
+    }
+  },
+
+  "company": {
+    "name": "Shop"
+  },
+
+  "pages": {
+    "home": {
+      "title": "Gift certificates",
+      "subtitle": "just for you"
+    },
+
+    "admin": {
+      "offcanvas-name": "Admin features"
+    },
+
+    "gift-certificate": {
+      "catalog": {
+        "page-name": "Catalog",
+        "search-box": {
+          "search-input": "Search",
+          "tags-select": "Tags",
+          "tags-select-placeholder": "Select tags",
+          "sort-select": "Sort",
+          "sort-select-placeholder": "Select sort",
+          "sorts": {
+            "name-asc": "By name",
+            "name-desc": "By name desc",
+            "create-date-asc": "By ascending date of creation",
+            "create-date-desc": "By descending date of creation",
+            "last-update-date-asc": "By ascending date of updation",
+            "last-update-date-desc": "By descending date of updation"
+          },
+          "search-button": "Search"
+        }
+      },
+      "list": {
+        "page-name": "Gift certificate list",
+        "search-box": {
+          "search-input": "Search",
+          "tags-select": "Tags",
+          "tags-select-placeholder": "Select tags",
+          "sort-select": "Sort",
+          "sort-select-placeholder": "Select sort",
+          "sorts": {
+            "name-asc": "By name",
+            "name-desc": "By name desc",
+            "create-date-asc": "By ascending date of creation",
+            "create-date-desc": "By descending date of creation",
+            "last-update-date-asc": "By ascending date of updation",
+            "last-update-date-desc": "By descending date of updation"
+          },
+          "search-button": "Search"
+        }
+      },
+      "page": {
+        "duration": "Duration:",
+        "tags": "Tags:",
+        "description": "Description:",
+        "add-to-cart-button": "Add to cart"
+      },
+      "add-page": {
+        "page-name": "Gift certificate adding",
+        "name-input": "Name",
+        "description-input": "Description",
+        "price-input": "Price",
+        "duration-input": "Duration",
+        "tags-input": "Tags",
+        "save-button": "Save"
+      },
+      "edit-page": {
+        "page-name": "Gift certificate editing",
+        "name-input": "Name",
+        "description-input": "Description",
+        "price-input": "Price",
+        "duration-input": "Duration",
+        "tags-input": "Tags",
+        "save-button": "Save"
+      },
+      "delete-modal": {
+        "title": "Gift certificate deleting",
+        "question": "Do you really want to delete <strong>\"{{ gift-certificate-name }}\"</strong> gift certificate?",
+        "close-button": "Close",
+        "confirm-button": "Delete"
+      }
+    },
+
+    "tag": {
+      "list": {
+        "page-name": "Tag list",
+        "search-box": {
+          "search-input": "Search",
+          "search-button": "Search"
+        }
+      },
+      "add-page": {
+        "page-name": "Tag adding",
+        "name-input": "Name",
+        "save-button": "Save"
+      },
+      "edit-page": {
+        "page-name": "Tag editing",
+        "name-input": "Name",
+        "save-button": "Save"
+      },
+      "delete-modal": {
+        "title": "Tag deleting",
+        "question": "Do you really want to delete <strong>\"{{ tag-name }}\"</strong> tag?",
+        "close-button": "Close",
+        "confirm-button": "Delete"
+      }
+    },
+
+    "registration": {
+      "page-name": "Registration",
+      "email-input": "Email",
+      "password-input": "Password",
+      "confirm-password-input": "Confirm password",
+      "name-input": "Name",
+      "address-input": "Address",
+      "phone-input": "Phone",
+      "sign-up-button": "Sign-up"
+    },
+
+    "login": {
+      "page-name": "Login",
+      "email-input": "Email",
+      "password-input": "Password",
+      "sign-in-button": "Sign-in"
+    },
+
+    "cart": {
+      "page-name": "Cart",
+      "total-price": "Total price: ",
+      "confirm-order-button": "Confirm order",
+      "empty": "Cart is empty"
+    },
+
+    "user": {
+      "email": "Email: ",
+      "name": "Name: ",
+      "address": "Address: ",
+      "phone": "Phone: ",
+      "orders": {
+        "list-name": "Orders",
+        "delete-modal": {
+          "title": "Order cancellation",
+          "question": "Do you really want to cancel order with number <strong>\"{{ order-id }}\"</strong>?",
+          "close-button": "Close",
+          "confirm-button": "Cancel"
+        }
+      },
+      "logout-button": "Logout",
+      "list": {
+        "page-name": "User list",
+        "search-box": {
+          "search-input": "Search",
+          "search-button": "Search"
+        }
+      }
+    }
+  }
+}

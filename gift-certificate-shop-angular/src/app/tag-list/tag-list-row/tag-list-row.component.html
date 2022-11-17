@@ -1,0 +1,38 @@
+<div class="row col-6 justify-content-center align-items-center border-top border-bottom py-3">
+  <div class="col-10">
+    <span class="fs-4">{{ tag.name }}</span>
+  </div>
+
+  <div class="col-1">
+    <a
+      class="btn btn-primary"
+      href=""
+      [routerLink]="['/tag-edit-page', tag.id]"
+      ariaCurrentWhenActive="page"
+    ><i class="bi bi-pencil"></i></a>
+  </div>
+
+  <div class="col-1">
+    <button class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#tag-delete-modal-' + tag.id">
+      <i class="bi bi-trash"></i>
+    </button>
+  </div>
+
+  <div class="modal fade" id="{{ 'tag-delete-modal-' + tag.id }}" tabindex="-1" [attr.aria-labelledby]="'tag-delete-modal-label-' + tag.id" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold" id="{{ 'tag-delete-modal-label-' + tag.id }}" translate="pages.tag.delete-modal.title"></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5" [innerHTML]="'pages.tag.delete-modal.question' | translate: {'tag-name': tag.name}"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" translate="pages.tag.delete-modal.close-button"></button>
+          <button type="button" class="btn btn-primary" translate="pages.tag.delete-modal.confirm-button" (click)="deleteTag()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

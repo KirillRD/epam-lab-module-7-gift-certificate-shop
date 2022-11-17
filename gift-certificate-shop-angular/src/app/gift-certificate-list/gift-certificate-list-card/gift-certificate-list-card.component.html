@@ -1,0 +1,64 @@
+<div class="card shadow-sm h-100">
+  <a
+    href=""
+    [routerLink]="['/gift-certificate-page', giftCertificate.id]"
+    ariaCurrentWhenActive="page"
+  ><img src="{{ imageURL }}" class="img-fluid w-100"></a>
+
+  <div class="card-body">
+    <div class="card-title d-flex justify-content-between align-items-center">
+      <a
+        class="fs-4 text-underline-hover"
+        href=""
+        [routerLink]="['/gift-certificate-page', giftCertificate.id]"
+        ariaCurrentWhenActive="page"
+      >{{ giftCertificate.name }}</a>
+      <span class="fs-5">
+        {{ 'fields.duration.days' | translate: {'dyas' : giftCertificate.duration} }}
+      </span>
+    </div>
+
+    <div class="card-text">
+      <ul class="row row-cols-3">
+        <li class="ps-0" *ngFor="let tag of giftCertificate.tags">{{ tag.name }}</li>
+      </ul>
+
+      <small>
+        {{ giftCertificate.description }}
+      </small>
+    </div>
+  </div>
+
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <span class="fw-bold fs-5 text-primary">{{ giftCertificate.price | currency }}</span>
+    <div>
+      <a
+        class="btn btn-lg btn-primary me-3"
+        href=""
+        [routerLink]="['/gift-certificate-edit-page', giftCertificate.id]"
+        ariaCurrentWhenActive="page"
+      ><i class="bi bi-pencil"></i></a>
+      <button class="btn btn-lg btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#gift-certificate-delete-modal-' + giftCertificate.id">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="{{ 'gift-certificate-delete-modal-' + giftCertificate.id }}" tabindex="-1" [attr.aria-labelledby]="'gift-certificate-delete-modal-label-' + giftCertificate.id" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fw-bold" id="{{ 'gift-certificate-delete-modal-label-' + giftCertificate.id }}" translate="pages.gift-certificate.delete-modal.title"></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="fs-5" [innerHTML]="'pages.gift-certificate.delete-modal.question' | translate: {'gift-certificate-name': giftCertificate.name}"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" translate="pages.gift-certificate.delete-modal.close-button"></button>
+        <button type="button" class="btn btn-primary" translate="pages.gift-certificate.delete-modal.confirm-button" (click)="deleteGiftCertificate()"></button>
+      </div>
+    </div>
+  </div>
+</div>

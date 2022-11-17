@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="d-flex flex-column align-items-center">
+    <h2 class="text-primary fw-bold" translate="pages.cart.page-name"></h2>
+    <form class="col-10 d-flex flex-column align-items-center">
+      <hr class="w-100">
+
+      <div class="row row-cols-1 d-flex justify-content-center">
+        <app-cart-row *ngFor="let giftCertificateCart of cart" [giftCertificateCart]="giftCertificateCart" (onDelete)="loadCart()" (onCountChange)="loadTotalPrice()"></app-cart-row>
+      </div>
+
+      <div *ngIf="cart != null && cart.length != 0" class="fw-bold fs-3 align-self-end mb-3">
+        <span translate="pages.cart.total-price"></span>
+        <span>{{ totalPrice | currency }}</span>
+      </div>
+      <button *ngIf="cart != null && cart.length != 0" class="btn btn-primary btn-lg align-self-end" translate="pages.cart.confirm-order-button" (click)="submitOrder()"></button>
+
+      <span *ngIf="cart == null || cart.length == 0" class="fs-3" translate="pages.cart.empty"></span>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="d-flex flex-column align-items-center">
+  <h2 class="mb-3 text-primary fw-bold" translate="pages.gift-certificate.edit-page.page-name"></h2>
+  <form [formGroup]="giftCertificateForm" class="col-5" (ngSubmit)="submitForm(giftCertificateForm.value)" novalidate>
+    <ngb-alert
+      *ngIf="nameExistsAlert"
+      type="danger"
+      (closed)="closeNameExistsAlert()"
+      translate="validator.warning-messages.gift-certificate.name-exists"
+    ></ngb-alert>
+    <div class="mb-3">
+      <label for="nameInput" class="form-label" translate="pages.gift-certificate.edit-page.name-input"></label>
+      <input
+        class="form-control"
+        id="nameInput"
+        formControlName="name"
+        [class.is-invalid]="giftCertificateForm.controls['name'].invalid && (giftCertificateForm.controls['name'].dirty || giftCertificateForm.controls['name'].touched)"
+      >
+      <div *ngIf="giftCertificateForm.controls['name'].errors && (giftCertificateForm.controls['name'].dirty || giftCertificateForm.controls['name'].touched)" class="invalid-feedback">
+        <p class="m-0" *ngIf="giftCertificateForm.controls['name'].errors?.['required']" translate="validator.warning-messages.required"></p>
+        <p class="m-0" *ngIf="giftCertificateForm.controls['name'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+        <p class="m-0" *ngIf="giftCertificateForm.controls['name'].errors?.['nameExists']" translate="validator.warning-messages.gift-certificate.name-exists"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="priceInput" class="form-label" translate="pages.gift-certificate.edit-page.price-input"></label>
+          <input
+            class="form-control"
+            id="priceInput"
+            formControlName="price"
+            [class.is-invalid]="giftCertificateForm.controls['price'].invalid && (giftCertificateForm.controls['price'].dirty || giftCertificateForm.controls['price'].touched)"
+          >
+          <div *ngIf="giftCertificateForm.controls['price'].errors && (giftCertificateForm.controls['price'].dirty || giftCertificateForm.controls['price'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="giftCertificateForm.controls['price'].errors?.['required']" translate="validator.warning-messages.required"></p>
+            <p class="m-0" *ngIf="giftCertificateForm.controls['price'].errors?.['pattern']" translate="validator.warning-messages.patter.price"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="durationInput" class="form-label" translate="pages.gift-certificate.edit-page.duration-input"></label>
+          <input
+            class="form-control"
+            id="durationInput"
+            formControlName="duration"
+            [class.is-invalid]="giftCertificateForm.controls['duration'].invalid && (giftCertificateForm.controls['duration'].dirty || giftCertificateForm.controls['duration'].touched)"
+          >
+          <div *ngIf="giftCertificateForm.controls['duration'].errors && (giftCertificateForm.controls['duration'].dirty || giftCertificateForm.controls['duration'].touched)" class="invalid-feedback">
+            <p class="m-0" *ngIf="giftCertificateForm.controls['duration'].errors?.['required']" translate="validator.warning-messages.required"></p>
+            <p class="m-0" *ngIf="giftCertificateForm.controls['duration'].errors?.['pattern']" translate="validator.warning-messages.patter.natural-number"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="tagsInput" class="form-label" translate="pages.gift-certificate.edit-page.tags-input"></label>
+      <app-multi-dropdown
+        id="tagsInput"
+        [items]="tagItems"
+        [showSearch]="showSearch"
+        [showAll]="showAll"
+        [showStatus]="showStatus"
+        [showError]="showError"
+        (itemChange)="tagsValidator()"
+      ></app-multi-dropdown>
+      <div *ngIf="showError" class="mt-1">
+        <p class="m-0 text-danger tags-valid-font" *ngIf="showError" translate="validator.warning-messages.required"></p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="descriptionInput" class="form-label" translate="pages.gift-certificate.edit-page.description-input"></label>
+      <textarea
+        class="form-control"
+        id="descriptionInput"
+        formControlName="description"
+        [class.is-invalid]="giftCertificateForm.controls['description'].invalid && (giftCertificateForm.controls['description'].dirty || giftCertificateForm.controls['description'].touched)"
+      ></textarea>
+      <div *ngIf="giftCertificateForm.controls['description'].errors && (giftCertificateForm.controls['description'].dirty || giftCertificateForm.controls['description'].touched)" class="invalid-feedback">
+        <p class="m-0" *ngIf="giftCertificateForm.controls['description'].errors?.['required']" translate="validator.warning-messages.required"></p>
+        <p class="m-0" *ngIf="giftCertificateForm.controls['description'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+      </div>
+    </div>
+    <hr class="mt-0">
+    <button type="submit" class="btn btn-primary w-100" translate="pages.gift-certificate.edit-page.save-button"></button>
+  </form>
+</div>

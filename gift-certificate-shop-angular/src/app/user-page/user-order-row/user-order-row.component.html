@@ -1,0 +1,67 @@
+<div class="row border rounded-3 py-2 my-2">
+
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    {{ order.id }}
+  </div>
+
+  <div class="col-6">
+    <ul class="list-group" *ngIf="giftCartificateCarts.length > 0">
+      <li class="list-group-item" *ngFor="let giftCertificateCart of giftCartificateCarts">
+        <div class="row w-100">
+          <div class="col-7">
+            <a
+            class="text-underline-hover"
+            href=""
+            [routerLink]="['/gift-certificate-page', giftCertificateCart.giftCertificate.id]"
+            ariaCurrentWhenActive="page"
+          >{{ giftCertificateCart.giftCertificate.name }}</a>
+          </div>
+          <div class="col-4">
+            <span class="fw-bold">
+              {{ giftCertificateCart.giftCertificate.price | currency }}
+            </span>
+          </div>
+          <div class="col-1">
+            <span class="badge bg-primary rounded-pill">
+              {{ giftCertificateCart.count }}
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-1 d-flex justify-content-center align-items-center">
+    {{ giftCertificatesCount }}
+  </div>
+
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    <span class="fw-bold fs-5">
+      {{ order.price | currency }}
+    </span>
+  </div>
+
+  <div class="col-1 d-flex justify-content-center align-items-center">
+    <button class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#order-delete-modal-' + order.id">
+      <i class="bi bi-trash"></i>
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="{{ 'order-delete-modal-' + order.id }}" tabindex="-1" [attr.aria-labelledby]="'order-delete-modal-label-' + order.id" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fw-bold" id="{{ 'order-delete-modal-label-' + order.id }}" translate="pages.user.orders.delete-modal.title"></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="fs-5" [innerHTML]="'pages.user.orders.delete-modal.question' | translate: {'order-id': order.id}"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" translate="pages.user.orders.delete-modal.close-button"></button>
+        <button type="button" class="btn btn-primary" translate="pages.user.orders.delete-modal.confirm-button" (click)="deleteOrder()"></button>
+      </div>
+    </div>
+  </div>
+</div>

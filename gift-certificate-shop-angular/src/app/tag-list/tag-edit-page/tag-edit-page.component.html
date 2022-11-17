@@ -1,0 +1,27 @@
+<div class="d-flex flex-column align-items-center">
+  <h2 class="mb-3 text-primary fw-bold" translate="pages.tag.edit-page.page-name"></h2>
+  <form [formGroup]="tagForm" class="col-3" (ngSubmit)="submitForm(tagForm.value)" novalidate>
+    <ngb-alert
+      *ngIf="nameExistsAlert"
+      type="danger"
+      (closed)="closeNameExistsAlert()"
+      translate="validator.warning-messages.tag.name-exists"
+    ></ngb-alert>
+    <div class="mb-3">
+      <label for="nameInput" class="form-label" translate="pages.tag.edit-page.name-input"></label>
+      <input
+        class="form-control"
+        id="nameInput"
+        formControlName="name"
+        [class.is-invalid]="tagForm.controls['name'].invalid && (tagForm.controls['name'].dirty || tagForm.controls['name'].touched)"
+      >
+      <div *ngIf="tagForm.controls['name'].errors && (tagForm.controls['name'].dirty || tagForm.controls['name'].touched)" class="invalid-feedback">
+        <p class="m-0" *ngIf="tagForm.controls['name'].errors?.['required']" translate="validator.warning-messages.required"></p>
+        <p class="m-0" *ngIf="tagForm.controls['name'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+        <p class="m-0" *ngIf="tagForm.controls['name'].errors?.['nameExists']" translate="validator.warning-messages.tag.name-exists"></p>
+      </div>
+    </div>
+    <hr class="mt-0">
+    <button type="submit" class="btn btn-primary w-100" translate="pages.tag.edit-page.save-button"></button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="container d-flex flex-column">
+  <h2 class="mb-3 text-primary fw-bold align-self-center" translate="pages.gift-certificate.catalog.page-name"></h2>
+
+  <app-gift-certificate-search-box
+    [search]="search"
+    [tags]="tags"
+    [sorts]="sorts"
+    (searchSubmitEvent)="searchSubmit($event)"
+  ></app-gift-certificate-search-box>
+
+  <div class="row row-cols-3 g-4 mt-1">
+    <app-gift-certificate-card *ngFor="let giftCertificate of giftCertificates" [giftCertificate]="giftCertificate"></app-gift-certificate-card>
+  </div>
+
+  <div class="mt-4 d-flex justify-content-center">
+    <ngb-pagination *ngIf="count"
+      [(page)]="page"
+      [pageSize]="size"
+      [collectionSize]="count"
+      [maxSize]="5"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="navigateToGiftCertificateCatalog($event)"
+    ></ngb-pagination>
+</div>

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/epam_lab_advanced
+    username: Kirill
+    password: susano
+    hikari:
+      maximum-pool-size: 5
+
+  jackson:
+    time-zone: Europe/Minsk
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  web:
+    resources:
+      add-mappings: false
+
+  jpa:
+    open-in-view: false
+
+jwt:
+  secret: BpupS3nfEj5mj435pnWI9xq+yn/jpQou/9bF/Hty+LzQejNTIGJuP/5ofdPlCPGk5sVVT6uX9yhDSK/jNsuGfQ==
+# return Encoders.BASE64.encode(Keys.secretKeyFor(SignatureAlgorithm.HS512).getEncoded());
+  expiration: 86400000
+  payload:
+    id: id
+    login: login
+    name: name
+    roles: roles
+# jwt.secret = token_secret
+# 86400000 - 24 hour
+# 60000 - 1 min

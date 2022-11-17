@@ -1,0 +1,28 @@
+<div class="col-1">
+  <img src="/assets/images/user-page-image.png" class="img-fluid">
+</div>
+
+<div class="col-2 d-flex justify-content-center">
+  <a
+    class="text-underline-hover"
+    href=""
+    [routerLink]="['/user-list-user-page', user.id]"
+    ariaCurrentWhenActive="page"
+  >{{ user.name }}</a>
+</div>
+
+<div class="col-3 d-flex justify-content-center">
+  <span>{{ user.login }}</span>
+</div>
+
+<div class="col-2 d-flex justify-content-center">
+  <span>{{ user.phone }}</span>
+</div>
+
+<div class="col-3 d-flex justify-content-center">
+  <span>{{ user.address }}</span>
+</div>
+
+<div class="col-1 d-flex justify-content-center">
+  <span>{{ ordersCount }}</span>
+</div>

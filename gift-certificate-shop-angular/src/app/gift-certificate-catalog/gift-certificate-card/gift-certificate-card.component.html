@@ -1,0 +1,38 @@
+<div class="card shadow-sm h-100">
+  <a
+    href=""
+    [routerLink]="['/gift-certificate-page', giftCertificate.id]"
+    ariaCurrentWhenActive="page"
+  ><img src="{{ imageURL }}" class="img-fluid w-100"></a>
+
+  <div class="card-body">
+    <div class="card-title d-flex justify-content-between align-items-center">
+      <a
+        class="fs-4 text-underline-hover"
+        href=""
+        [routerLink]="['/gift-certificate-page', giftCertificate.id]"
+        ariaCurrentWhenActive="page"
+      >{{ giftCertificate.name }}</a>
+      <span class="fs-5">
+        {{ 'fields.duration.days' | translate: {'dyas' : giftCertificate.duration} }}
+      </span>
+    </div>
+
+    <div class="card-text">
+      <ul class="row row-cols-3">
+        <li class="ps-0" *ngFor="let tag of giftCertificate.tags">{{ tag.name }}</li>
+      </ul>
+
+      <small>
+        {{ giftCertificate.description }}
+      </small>
+    </div>
+  </div>
+
+  <div class="card-footer d-flex justify-content-between align-items-center">
+    <span class="fw-bold fs-5 text-primary">{{ giftCertificate.price | currency }}</span>
+    <button class="btn btn-lg btn-primary" (click)="addToCart()">
+      <i class="bi bi-cart-plus"></i>
+    </button>
+  </div>
+</div>

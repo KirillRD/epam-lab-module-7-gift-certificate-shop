@@ -1,0 +1,24 @@
+<div class="container d-flex flex-column">
+  <h2 class="mb-3 text-primary fw-bold align-self-center" translate="pages.user.list.page-name"></h2>
+
+  <app-user-list-search-box
+    [search]="search"
+    (searchSubmitEvent)="searchSubmit($event)"
+  ></app-user-list-search-box>
+
+  <div class="mt-4">
+    <app-user-list-row *ngFor="let user of users" [user]="user"></app-user-list-row>
+  </div>
+
+  <div class="mt-4 d-flex justify-content-center">
+    <ngb-pagination *ngIf="count"
+      [(page)]="page"
+      [pageSize]="size"
+      [collectionSize]="count"
+      [maxSize]="5"
+      [rotate]="true"
+      [boundaryLinks]="true"
+      (pageChange)="navigateToUserList($event)"
+    ></ngb-pagination>
+  </div>
+</div>

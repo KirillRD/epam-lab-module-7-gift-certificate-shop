@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use "bootstrap-required" as bootstrap;
+
+// $primary: bootstrap.$cyan-700;
+// $body-bg: bootstrap.$secondary;
+// $body-color: bootstrap.$light;
+
+$primary: bootstrap.$purple;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+// body {
+//   font-family: 'Quicksand', sans-serif;
+// }
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+// remove arrows from all browsers in input with type "number"
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.text-underline-hover {
+  text-decoration: none;
+}
+
+.text-underline-hover:hover {
+  text-decoration: underline;
+}

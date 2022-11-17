@@ -1,0 +1,41 @@
+<div class="d-flex flex-column align-items-center">
+  <h2 class="mb-3 text-primary fw-bold" translate="pages.login.page-name"></h2>
+  <form [formGroup]="credentials" class="col-3" (ngSubmit)="login(credentials.value)" novalidate>
+    <ngb-alert
+      *ngIf="invalidAuthenticationAlert"
+      type="danger"
+      (closed)="closeInvalidAuthenticationAlert()"
+      translate="validator.warning-messages.login.invalid-password"
+    ></ngb-alert>
+    <div class="mb-3">
+      <label for="emailInput" class="form-label" translate="pages.login.email-input"></label>
+      <input
+        type="email"
+        class="form-control"
+        id="emailInput"
+        formControlName="username"
+        [class.is-invalid]="credentials.controls['username'].invalid && (credentials.controls['username'].dirty || credentials.controls['username'].touched)"
+      >
+      <div *ngIf="credentials.controls['username'].errors && (credentials.controls['username'].dirty || credentials.controls['username'].touched)" class="invalid-feedback">
+        <p class="m-0" *ngIf="credentials.controls['username'].errors?.['required']" translate="validator.warning-messages.required"></p>
+        <p class="m-0" *ngIf="credentials.controls['username'].errors?.['pattern']" translate="validator.warning-messages.patter.email"></p>
+        <p class="m-0" *ngIf="credentials.controls['username'].errors?.['maxlength']" translate="validator.warning-messages.max-length-45"></p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label" translate="pages.login.password-input"></label>
+      <input
+        type="password"
+        class="form-control"
+        id="passwordInput"
+        formControlName="password"
+        [class.is-invalid]="credentials.controls['password'].invalid && (credentials.controls['password'].dirty || credentials.controls['password'].touched)"
+      >
+      <div *ngIf="credentials.controls['password'].errors && (credentials.controls['password'].dirty || credentials.controls['password'].touched)" class="invalid-feedback">
+        <p class="m-0" *ngIf="credentials.controls['password'].errors?.['required']" translate="validator.warning-messages.required"></p>
+      </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-primary w-100" translate="pages.login.sign-in-button"></button>
+  </form>
+</div>
